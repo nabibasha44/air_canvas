@@ -45,5 +45,11 @@ def ocr_response(request):
         return {'status': 'fail'}
 
 
+@app.route('/response-to-file', methods=['GET'])
+def return_response_file():
+    ...
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
