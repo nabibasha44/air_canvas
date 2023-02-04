@@ -48,7 +48,7 @@ def ocr_response(request):
 @app.route('/response-to-file', methods=['GET'])
 def return_response_file():
     localdir = os.getcwd() + '/tmp/'
-    with open('tets.txt')  as file:
+    with open('tets.txt') as file:
         file.writelines(responses.values())
     responses.clear()
     os.system(f'rm -rf {localdir}')
