@@ -1,7 +1,7 @@
 from flask import Flask, Response
 from hand_finger_motion import access_camera
 from flask_cors import CORS
-import base64, os
+import base64, os, shutil
 from hand_written_rec import detect_hand_written
 
 app = Flask(__name__)
@@ -47,8 +47,11 @@ def ocr_response(request):
 
 @app.route('/response-to-file', methods=['GET'])
 def return_response_file():
-    ...
-
+    localdir = os.getcwd() + '/tmp/'
+    with open('tets.txt')  as file:
+        file.writelines(responses.values())
+    responses.clear()
+    os.system(f'rm -rf {localdir}')
 
 
 if __name__ == "__main__":
